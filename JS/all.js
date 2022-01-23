@@ -29,9 +29,11 @@
 //     });
 // }
 
+//建立基本vue架構
 const App = {
   data() {
     return {
+      //user驗證的回傳值
       user: {
         username: "",
         password: "",
@@ -41,13 +43,16 @@ const App = {
   methods: {
     login() {
       const loginApi = "https://vue3-course-api.hexschool.io/v2/admin/signin";
+      //axios進行login動作
       axios
         .post(loginApi, this.user)
         .then((res) => {
+          //解構res.data取出token&expired時間
           const { token, expired } = res.data;
           document.cookie = `vanMoritzToken=${token};expires=${new Date(
             expired
           )};`;
+          //跳轉到產品頁面
           window.location = "products.html";
         })
         .catch((err) => {
@@ -57,4 +62,5 @@ const App = {
     },
   },
 };
+//將App掛載到#app上
 Vue.createApp(App).mount("#app");

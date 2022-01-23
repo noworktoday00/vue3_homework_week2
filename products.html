@@ -36,6 +36,7 @@
                 </tr>
               </thead>
               <tbody>
+                <!-- v-for要記得綁上:key值哦~ -->
                 <tr v-for="item in products" :key="item.id">
                   <td width="150">{{ item.title }}</td>
                   <td width="120">{{ item.origin_price }}</td>

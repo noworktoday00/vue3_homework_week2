@@ -11,15 +11,18 @@
       integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
       crossorigin="anonymous"
     />
+    <!-- 這邊在href目錄上要加一個"."，這樣在GH上面才會找的到設定的那個資料夾再往內找~ -->
     <link rel="stylesheet" href="./CSS/all.css" />
   </head>
 
   <body>
+    <!-- 這邊是對應到const App的mount -->
     <div id="app">
       <div class="container">
         <div class="row justify-content-center">
           <h1 class="h3 mb-3 font-weight-normal">請先登入</h1>
           <div class="col-8">
+            <!-- @submit是當執行submit的動作的時候會執行login的函式 -->
             <form id="form" class="form-signin" @submit.prevent="login">
               <div class="form-floating mb-3">
                 <input
@@ -44,6 +47,7 @@
                 />
                 <label for="password">Password</label>
               </div>
+              <!-- submit的btn會進行表單傳送的動作 -->
               <button class="btn btn-lg btn-primary w-100 mt-3" type="submit">
                 登入
               </button>
@@ -54,6 +58,7 @@
       </div>
     </div>
 
+    <!-- axios的CDN -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.9.1/axios.min.js"
       integrity="sha512-Xk3wWei2TGrsh9kDSBKUMIjw/86sLUvhtnv9f7fOuIwhhiUTKz8szkWkzHthrM5Bb3Bu9idSzkxOrkzhcneuiw=="
@@ -70,6 +75,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://unpkg.com/vue@next"></script>
+    <!-- 這邊在href目錄上要加一個"."，這樣在GH上面才會找的到設定的那個資料夾再往內找~ -->
     <script src="./JS/all.js"></script>
   </body>
 </html>
