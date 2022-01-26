@@ -60,5 +60,5 @@ const App = Vue.createApp({
           // console.dir(err);
         });
     },
-  }, 
-}).mount("#app");  //將App掛載到#app上
+  },
+}).mount("#app"); //將App掛載到#app上

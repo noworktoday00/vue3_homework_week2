@@ -13,30 +13,35 @@ const App = Vue.createApp({
   methods: {
     checkAdmin() {
       // 確認登入狀態的api
-      axios.post(`${this.apiUrl}/api/user/check`)
-      .then((res) => {
-        this.getData()})
-      .catch((err)=>{
-        alert(err.data.message)
-        window.location = 'index.html';
-      })
+      axios
+        .post(`${this.apiUrl}/api/user/check`)
+        .then((res) => {
+          this.getData();
+        })
+        .catch((err) => {
+          alert(err.data.message);
+          window.location = "index.html";
+        });
     },
-    getData(){
+    getData() {
       // 提取產品列表的api
-      axios.get(`${this.apiUrl}/api/${this.apiPath}/admin/products`)
-      .then((res)=>{
-        this.products = res.data.products;
-      })
-      .catch((err)=>{
-        alert(err.data.message);
-      })
-    }
+      axios
+        .get(`${this.apiUrl}/api/${this.apiPath}/admin/products`)
+        .then((res) => {
+          this.products = res.data.products;
+        })
+        .catch((err) => {
+          alert(err.data.message);
+        });
+    },
   },
   mounted() {
     // 驗證cookie的token，後面那一串看不懂的是正規表達式
-    const token = document.cookie.replace(/(?:(?:^|.*;\s*)vanMoritzToken\s*=\s*([^;]*).*$)|^.*$/, '$1');
+    const token = document.cookie.replace(
+      /(?:(?:^|.*;\s*)vanMoritzToken\s*=\s*([^;]*).*$)|^.*$/,
+      "$1"
+    );
     axios.defaults.headers.common.Authorization = token;
-    this.checkAdmin()
+    this.checkAdmin();
   },
 }).mount("#app");
-
