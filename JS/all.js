@@ -30,7 +30,7 @@
 // }
 
 //建立基本vue架構
-const App = {
+const App = Vue.createApp({
   data() {
     return {
       //user驗證的回傳值
@@ -60,7 +60,5 @@ const App = {
           // console.dir(err);
         });
     },
-  },
-};
-//將App掛載到#app上
-Vue.createApp(App).mount("#app");
+  }, 
+}).mount("#app");  //將App掛載到#app上

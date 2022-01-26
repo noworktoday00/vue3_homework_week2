@@ -1,4 +1,4 @@
-const App = {
+const App = Vue.createApp({
   // 資料(函式)
   data() {
     return {
@@ -38,5 +38,5 @@ const App = {
     axios.defaults.headers.common.Authorization = token;
     this.checkAdmin()
   },
-};
-Vue.createApp(App).mount("#app");
+}).mount("#app");
+
